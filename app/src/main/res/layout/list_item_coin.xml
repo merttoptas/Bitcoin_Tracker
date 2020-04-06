@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="coin"
+            type="com.merttoptas.bitcointracker.views.model.Coin" />
+        <variable
+            name="position"
+            type="Integer" />
+        <import type="android.content.res.ColorStateList"/>
+        <variable
+            name="list"
+            type="String" />
+        <import type="android.graphics.Color"/>
+        <variable
+            name="txtColor"
+            type="String" />
+        <import type="com.merttoptas.bitcointracker.viewmodels.CoinViewModel"/>
+
+
+
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="1dp"
+        app:cardElevation="2dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp">
+
+            <LinearLayout
+                android:id="@+id/ll_item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/img_coin"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:padding="8dp"
+                    android:scaleType="fitCenter"
+                    app:imageUrl="@{coin.iconUrl}"
+                    tools:src="@drawable/ic_launcher_background" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_coin_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@{coin.name}"
+                        android:textSize="18dp"
+                        android:textStyle="bold"
+                        app:colour="@{coin.color}"
+                        tools:text="Coin name" />
+
+                    <TextView
+                        android:id="@+id/tv_coin_description"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="3"
+                        android:text="@{coin.price}"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        app:colour="@{coin.color}"
+                        tools:text="Description" />
+                </LinearLayout>
+            </LinearLayout>
+
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</layout>
